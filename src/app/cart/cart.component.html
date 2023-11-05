@@ -1,0 +1,33 @@
+<div [ngSwitch]="getState()">
+
+    <div class="bordered-div" *ngSwitchCase="'EmptyCart'"> Votre panier est actuellement vide.</div>
+
+    <div class="bordered-div" *ngSwitchCase="'SavedAsDraft'">
+        Votre brouillon de commande a été enregistré.<br>
+        Vous pouvez le voir dans la
+        <a routerLink="/client/commandes/liste">liste des commandes</a>
+    </div>
+
+
+    <div class="bordered-div" *ngSwitchCase="'SavedAsOrder'"> Votre commande a été enregistrée,
+        et sera traitée dans les plus brefs délais.<br>
+        Vous pouvez la voir dans la
+        <a routerLink="/client/commandes/liste">liste des commandes</a>
+    </div>
+
+    <div class="bordered-div" *ngSwitchCase="'JustBegun'">
+
+        Vous êtes maintenant prêt à valider la commande suivante :
+
+        <app-order [order]="order"></app-order>
+
+        <br>
+
+        <button class="ordinary-button" (click)="handleOrderConfirmation()"> Valider la commande </button>
+
+        <br>
+
+        <button class="ordinary-button" (click)="handleOrderPostpone()"> Remettre à plus tard </button>
+    </div>
+
+</div>

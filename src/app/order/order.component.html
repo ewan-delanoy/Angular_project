@@ -1,0 +1,27 @@
+<br>
+Commande numéro {{ order.orderID }}
+créée le {{order.creationDateTime | frenchdatetime }}
+<span *ngIf="order.creationDateTime !== order.lastModifiedDateTime">,<br>dernière modification le
+    {{order.creationDateTime | frenchdatetime}}
+</span>
+
+<br>
+
+<div *ngIf="order.orderDetails.length > 1">
+    <ul>
+        <li *ngFor="let detail of order.orderDetails">
+            {{ detail.quantity}} {{ detail.productName}} ({{ detail.productType |frenchproducttype}}) à
+            {{detail.unitPrice | frencheuro }}
+            <span *ngIf="detail.quantity > 1"> ce qui fait {{detail.totalPrice | frencheuro }}</span>
+        </li>
+    </ul>
+    En tout, {{ order.numberOfItems }} articles pour un total de {{order.totalPrice| frencheuro }}
+</div>
+
+<div *ngIf="order.orderDetails.length === 1">
+    <div *ngFor="let detail of order.orderDetails">
+        {{ detail.quantity}} {{ detail.productName}} ({{ detail.productType | frenchproducttype}}) à
+        {{detail.unitPrice | frencheuro }}
+        <span *ngIf="detail.quantity > 1"> ce qui fait {{detail.totalPrice | frencheuro }}</span>
+    </div>
+</div>

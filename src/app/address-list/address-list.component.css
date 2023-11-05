@@ -1,0 +1,10 @@
+/* Style for the container div */
+.bordered-div {
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    font-size: 16px;
+    margin: 20px;
+}

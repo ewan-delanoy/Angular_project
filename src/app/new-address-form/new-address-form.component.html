@@ -1,0 +1,47 @@
+<div class="bordered-div">
+    <form [formGroup]="addressGroup" (ngSubmit)="onSubmit()">
+
+        <div class="formControlBlock">
+            <label for="streetLine1">Rue (Ligne 1)</label>
+            <input formControlName="streetLine1" type="text" id="streetLine1" class="formControl" maxlength="255"
+                required />
+        </div>
+
+        <div class="formControlBlock">
+            <label for="streetLine2">Rue (Ligne 2)</label>
+            <input formControlName="streetLine2" type="text" id="streetLine2" class="formControl" maxlength="255" />
+        </div>
+
+        <div class="formControlBlock">
+            <label for="zipCode">Code postal</label>
+            <input formControlName="zipCode" type="text" id="zipCode" class="formControl" maxlength="10" required />
+        </div>
+
+        <div class="formControlBlock">
+            <label for="city">Ville</label>
+            <input formControlName="city" type="text" id="city" class="formControl" maxlength="58" required />
+        </div>
+
+        <div class="formControlBlock">
+            <label for="phone">Téléphone</label>
+            <input formControlName="phone" type="text" id="phone" class="formControl" maxlength="14" required />
+        </div>
+
+
+
+        <div class="formControlBlock">
+            <label for="selectedCountry">Pays</label>
+            <select formControlName="selectedCountry" id="selectedCountry" class="form-control">
+                <option value="" disabled>Choisissez un pays</option>
+                <option *ngFor="let country of countries" [value]="country.countryID">
+                    {{ country.shortName }} ({{ country.name }})</option>
+            </select>
+        </div>
+
+        <p *ngIf="!addressGroup.valid && addressGroup.touched" class="error-block">
+            Ce formulaire n’est pas valide
+        </p>
+        <hr />
+        <button [disabled]="!addressGroup.valid" type="submit">Envoyer</button>
+    </form>
+</div>

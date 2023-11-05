@@ -1,0 +1,39 @@
+<div *ngIf="model.products.length === 0">Chargement des données en cours ... </div>
+<div *ngIf="model.products.length > 0">
+    Cliquez sur le nom d'un produit pour accéder à sa description.
+    <button class="ordinary-button" [disabled]="model.numberOfSelectedItems === 0" (click)="goToCart()">
+        {{model.numberOfSelectedItems > 0?'Commander les articles sélectionnés':'Aucun article actuellement
+        sélectionné'}}</button>
+
+    <br>
+    <br>
+    <div class="scroll-view">
+        <table>
+            <tr>
+                <th> </th>
+                <th>Nom</th>
+
+                <th>Prix Unitaire</th>
+                <th>Quantité</th>
+            </tr>
+            <tr *ngFor="let product of model.products" [class.commonTr]="0===0" [class.selectedTr]="product.isSelected"
+                [class.unavailableTr]="product.stockpiled===0">
+                <td><input *ngIf="product.stockpiled>0" type="checkbox" [checked]="product.isSelected"
+                        (click)="handleSelectionChange(product.productID,$event)"></td>
+                <td>
+                    <span (click)="enterDetailedMode(product.productID)">
+                        {{ product.name }}
+                        ({{ product.productType | frenchproducttype}})
+                    </span>
+                </td>
+                <td>{{ product.unitPrice | frencheuro}}</td>
+                <td>
+                    <app-quantity-selector [quantity]="product.quantity" [stockpiled]="product.stockpiled"
+                        (quantityChange)="handleQuantityChange(product.productID,$event)">
+
+                    </app-quantity-selector>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

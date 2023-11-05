@@ -1,0 +1,12 @@
+<span *ngIf="stockpiled > 0">
+    Quantité :
+    <input type="number" class="form-control" id="valueId" value="{{ quantity }}"
+        (change)="transmitQuantityChange($event)">
+
+    parmi {{ stockpiled }} en stock
+
+
+</span>
+<span *ngIf="stockpiled === 0">
+    En rupture de stock
+</span>

@@ -1,0 +1,45 @@
+/* Default button styles */
+.ordinary-button {
+    background-color: #3498db;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    margin: 5px 0;
+}
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 768px) {
+    .ordinary-button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+/* Responsive styles for larger screens */
+@media screen and (min-width: 1200px) {
+    .submit-button {
+        padding: 12px 24px;
+        font-size: 18px;
+    }
+}
+
+/* Style for the container div */
+.bordered-div {
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    font-size: 16px;
+    margin: 20px;
+}
+
+/* Style for the anchor link */
+a {
+    color: #007bff;
+    text-decoration: none;
+}

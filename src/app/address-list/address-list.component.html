@@ -1,0 +1,6 @@
+<div class="bordered-div">
+    <div *ngFor="let a of addresses">
+        {{ a.streetLine1 }} {{ a.streetLine2 }}
+        {{ a.zipCode }} {{ a.city }} {{ a.countryID | frenchcountryname}} {{ a.phone }}
+    </div>
+</div>

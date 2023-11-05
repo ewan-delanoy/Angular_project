@@ -1,0 +1,16 @@
+<span class="bold-class"> Commandes
+    {{ orderSublist.criterion | frenchorderstate }} : </span>
+<span *ngIf="orderSublist.sublist.length === 0">
+    aucune.</span>
+
+<div *ngIf="orderSublist.sublist.length !== 0">
+
+    <table>
+        <tbody>
+            <tr *ngFor="let order of orderSublist.sublist">
+                <app-order [order]="order"></app-order>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

@@ -1,0 +1,14 @@
+<button disabled class="active-link">Détails Produit</button>
+
+<hr />
+
+<div class="bordered-div" *ngIf="product">
+
+    <span class="bold-class">Nom : </span> {{product!.name | uppercase}} <br>
+    <span class="bold-class">Catégorie : </span> {{ formalProductType! | frenchproducttype}} <br>
+    <span class="bold-class">Prix unitaire : </span> {{product!.unitPrice | frencheuro }} <br>
+    <span class="bold-class">Identifiant produit : </span> {{ product!.productID }} <br>
+    <span class="bold-class">Descriptif :</span>
+    <p> {{ product!.description}} </p>
+
+</div>
